@@ -1,0 +1,25 @@
+/* src/index.css */
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+/* Global website color system */
+:root {
+  --mc-red: #c02026;
+  --mc-dark: #111111;
+  --mc-light: #f9f5f2;
+  --mc-accent: #1a6aa8;
+  --mc-orange: #ff9f1c;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", Arial, sans-serif;
+  background: var(--mc-light);
+  color: var(--mc-dark);
+}
