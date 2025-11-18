@@ -1,43 +1,73 @@
-import { useState, useEffect } from "react";
+// src/pages/Home.jsx
+import { useEffect, useState } from "react";
 import "./Home.css";
 
-// Slideshow images (update names if different)
-import slide1 from "../assets/slide1.jpg";
-import slide2 from "../assets/slide2.jpg";
-import slide3 from "../assets/slide3.jpg";
-import slide4 from "../assets/slide4.jpg";
-import slide5 from "../assets/slide5.jpg";
-import slide6 from "../assets/slide6.jpg";
+// Make sure these filenames match exactly what's in src/assets
+import image1 from "../assets/image1.jpg";
+import image2 from "../assets/image2.jpg";
+import image3 from "../assets/image3.jpg";
+import image4 from "../assets/image4.jpg";
+import image5 from "../assets/image5.jpg";
+import image6 from "../assets/image6.jpg";
 
-const slides = [slide1, slide2, slide3, slide4, slide5, slide6];
+const slides = [image1, image2, image3, image4, image5, image6];
 
 export default function Home() {
   const [index, setIndex] = useState(0);
 
+  // Auto-advance slideshow every 5 seconds
   useEffect(() => {
     const id = setInterval(() => {
-      setIndex((i) => (i + 1) % slides.length);
-    }, 3000);
+      setIndex((prev) => (prev + 1) % slides.length);
+    }, 5000);
     return () => clearInterval(id);
   }, []);
 
   return (
-    <div className="home-container">
-      <div className="hero">
-        <div className="hero-text">
-          <h1>Welcome to Madison County Strong</h1>
-          <p>
-            Supporting disaster relief and long-term recovery for Madison County,
-            FL. Together, we rebuild stronger.
-          </p>
-        </div>
+    <div className="home">
+      <section className="home-hero">
+        {/* LEFT: Text + buttons */}
+        <div className="hero-left">
+          <h2 className="hero-title">
+            Helping Madison County Recover and Rebuild
+          </h2>
 
-        <div className="hero-slideshow">
-          <div className="hero-slideshow-inner">
-            <img src={slides[index]} alt="Relief Effort" />
+          <p className="hero-mission">
+            The mission of Madison County Strong LTRG is to coordinate and
+            facilitate efficient, sustainable recovery efforts for individuals
+            and families affected by disaster in Madison County. Through
+            strategic partnerships and resource management, we aim to promote
+            long-term resilience, restoration, and the well-being of our
+            community.
+          </p>
+
+          <div className="hero-cta">
+            <a href="/request-assistance" className="hero-btn primary">
+              Request Assistance
+            </a>
+            <a href="/volunteer" className="hero-btn secondary">
+              Volunteer
+            </a>
+            <a href="/donate" className="hero-btn tertiary">
+              Donate
+            </a>
           </div>
         </div>
-      </div>
+
+        {/* RIGHT: Slideshow with red border (styled in Home.css) */}
+        <div className="hero-right">
+          <div className="hero-slideshow">
+            {slides.map((src, i) => (
+              <div
+                key={i}
+                className={`hero-slide ${i === index ? "active" : ""}`}
+              >
+                <img src={src} alt={`Relief effort ${i + 1}`} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
