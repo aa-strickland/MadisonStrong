@@ -1,18 +1,30 @@
 // src/App.jsx
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home.jsx";
+import RequestAssistance from "./pages/RequestAssistance.jsx";
+import Donate from "./pages/Donate.jsx";
+import Volunteer from "./pages/Volunteer.jsx";
+
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
-import Home from "./pages/Home.jsx";
-import "./App.css";
 
 function App() {
   return (
-    <div className="app-shell">
+    <BrowserRouter>
       <Header />
-      <main className="page-content">
-        <Home />
+
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/request-assistance" element={<RequestAssistance />} />
+          <Route path="/volunteer" element={<Volunteer />} />
+          <Route path="/donate" element={<Donate />} />
+        </Routes>
       </main>
+
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 

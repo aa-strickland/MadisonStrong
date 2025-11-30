@@ -41,22 +41,22 @@ export default function Header() {
             </svg>
           </a>
 
+          {/* Assistance */}
+          <a href="/request-assistance" className="action-btn action-outline">
+            ASSISTANCE
+          </a>
+
+          {/* Volunteer */}
+          <a href="/volunteer" className="action-btn action-outline">
+            VOLUNTEER
+          </a>
+
           {/* Donate */}
           <a href="/donate" className="action-btn action-solid">
             DONATE
           </a>
-
-          {/* Phone */}
-          <a href="tel:18508431917" className="action-btn action-outline" aria-label="Call Phone">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.8-.4 
-                1.1-.2c1.2.4 2.5.7 3.8.7c.6 0 1 .4 1 1V21c0 .6-.4 1-1 
-                1C10 22 2 14 2 4c0-.6.4-1 1-1h3.3c.6 0 1 .4 1 
-                1c0 1.3.2 2.6.7 3.8c.1.4 0 .8-.3 1.1l-2.1 2z" />
-            </svg>
-          </a>
-
         </div>
+
       </div>
     </header>
   );

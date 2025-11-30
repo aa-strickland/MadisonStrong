@@ -3,14 +3,19 @@
 .home {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
 }
 
 /* Two-column hero layout */
 .home-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: 2.5rem;
-  padding: 2.5rem 0 2rem;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+  gap: 1.75rem; /* slightly tighter */
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  background: #faf5f1;
+  border-radius: 1.25rem;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
 }
 
 /* LEFT SIDE: text + buttons */
@@ -21,15 +26,15 @@
 }
 
 .hero-title {
-  font-size: 2rem;
+  font-size: 2.3rem;
   font-weight: 700;
   color: var(--mc-dark);
   margin: 0 0 1rem 0;
 }
 
 .hero-mission {
-  font-size: 0.98rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.7;
   margin-bottom: 1.75rem;
 }
 
@@ -39,7 +44,7 @@
   gap: 0.75rem;
 }
 
-/* CTA buttons */
+/* BASE BUTTON STYLE */
 .hero-btn {
   border-radius: 999px;
   padding: 0.7rem 1.3rem;
@@ -53,27 +58,28 @@
   transition: 0.18s ease;
 }
 
-/* primary: blue solid */
-.hero-btn.primary {
-  background: var(--mc-blue);
-  color: #ffffff;
-  border-color: var(--mc-blue);
-}
-
-/* secondary: white with blue border */
-.hero-btn.secondary {
+/* REQUEST — white bg, RED outline */
+.request-btn {
   background: #ffffff;
-  color: var(--mc-blue);
-  border-color: var(--mc-blue);
-}
-
-/* tertiary: white with red border */
-.hero-btn.tertiary {
-  background: #ffffff;
+  border: 2px solid var(--mc-red);
   color: var(--mc-red);
-  border-color: var(--mc-red);
 }
 
+/* VOLUNTEER — white bg, black outline */
+.volunteer-btn {
+  background: #ffffff;
+  border: 2px solid #222;
+  color: #222;
+}
+
+/* DONATE — white bg, red outline */
+.donate-btn {
+  background: #ffffff;
+  border: 2px solid var(--mc-red);
+  color: var(--mc-red);
+}
+
+/* Hover effect for ALL buttons */
 .hero-btn:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -86,32 +92,29 @@
   justify-content: center;
 }
 
-/* ✨ Gradient Border Slideshow — No mask(), no warnings */
+/* Solid Red Border Slideshow */
 .hero-slideshow {
   position: relative;
   width: 100%;
-  max-width: 420px;
+  max-width: 550px; /* bigger to fill space */
   aspect-ratio: 4 / 3;
-
-  /* Gradient border */
   padding: 6px; /* border thickness */
-  background: linear-gradient(135deg, var(--mc-blue), var(--mc-red));
+  background: var(--mc-red); /* border color */
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
 }
 
-/* inner slide wrapper to preserve rounded border */
+/* slides */
 .hero-slideshow .hero-slide {
   position: absolute;
   inset: 0;
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
-  border-radius: 0.8rem; /* matches padding curve */
+  border-radius: 0.8rem;
   overflow: hidden;
 }
 
-/* only the active slide shows */
 .hero-slide.active {
   opacity: 1;
 }
@@ -122,6 +125,60 @@
   object-fit: cover;
 }
 
+/* HOW YOU CAN HELP SECTION */
+
+.home-help {
+  text-align: center;
+}
+
+.home-help h3 {
+  font-size: 1.7rem;
+  margin-bottom: 0.5rem;
+  color: var(--mc-dark);
+}
+
+.help-intro {
+  max-width: 640px;
+  margin: 0 auto 1.75rem auto;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.help-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.help-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1.4rem 1.5rem;
+  text-align: left;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.help-card h4 {
+  margin: 0 0 0.6rem 0;
+  font-size: 1.1rem;
+  color: var(--mc-dark);
+}
+
+.help-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 0.9rem;
+  color: #555;
+}
+
+.help-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--mc-blue);
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .home-hero {
@@ -129,11 +186,15 @@
   }
 
   .hero-right {
-    margin-bottom: 1.5rem;
+    margin-top: 1.4rem;
   }
 
   .hero-title {
-    font-size: 1.7rem;
+    font-size: 2rem;
+  }
+
+  .help-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 

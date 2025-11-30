@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import "./Home.css";
 
-// Make sure these filenames match exactly what's in src/assets
 import image1 from "../assets/image1.jpg";
 import image2 from "../assets/image2.jpg";
 import image3 from "../assets/image3.jpg";
@@ -17,20 +16,20 @@ export default function Home() {
 
   // Auto-advance slideshow every 5 seconds
   useEffect(() => {
-    const id = setInterval(() => {
-      setIndex((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    const id = setInterval(
+      () => setIndex((prev) => (prev + 1) % slides.length),
+      5000
+    );
     return () => clearInterval(id);
   }, []);
 
   return (
     <div className="home">
+      {/* HERO SECTION */}
       <section className="home-hero">
         {/* LEFT: Text + buttons */}
         <div className="hero-left">
-          <h2 className="hero-title">
-            Helping Madison County Recover and Rebuild
-          </h2>
+          <h2 className="hero-title">Helping Madison County Recover and Rebuild</h2>
 
           <p className="hero-mission">
             The mission of Madison County Strong LTRG is to coordinate and
@@ -42,19 +41,30 @@ export default function Home() {
           </p>
 
           <div className="hero-cta">
-            <a href="/request-assistance" className="hero-btn primary">
+            <a
+              href="/request-assistance"
+              className="hero-btn request-btn"
+            >
               Request Assistance
             </a>
-            <a href="/volunteer" className="hero-btn secondary">
+
+            <a
+              href="/volunteer"
+              className="hero-btn volunteer-btn"
+            >
               Volunteer
             </a>
-            <a href="/donate" className="hero-btn tertiary">
+
+            <a
+              href="/donate"
+              className="hero-btn donate-btn"
+            >
               Donate
             </a>
           </div>
         </div>
 
-        {/* RIGHT: Slideshow with red border (styled in Home.css) */}
+        {/* RIGHT: Slideshow */}
         <div className="hero-right">
           <div className="hero-slideshow">
             {slides.map((src, i) => (
@@ -65,6 +75,59 @@ export default function Home() {
                 <img src={src} alt={`Relief effort ${i + 1}`} />
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* HOW YOU CAN HELP SECTION */}
+      <section className="home-help">
+        <h3>How You Can Help</h3>
+        <p className="help-intro">
+          Whether you need assistance, want to volunteer, or are able to give
+          financially, every action helps Madison County recover and rebuild.
+        </p>
+
+        <div className="help-grid">
+          <div className="help-card">
+            <h4>Request Assistance</h4>
+            <p>
+              If you or your family have been impacted by disaster in Madison
+              County, let us know how we can support you.
+            </p>
+            <a
+              href="/request-assistance"
+              className="help-link"
+            >
+              Request Help
+            </a>
+          </div>
+
+          <div className="help-card">
+            <h4>Volunteer</h4>
+            <p>
+              Join neighbors, churches, and organizations working together on
+              clean-up, repairs, and long-term recovery.
+            </p>
+            <a
+              href="/volunteer"
+              className="help-link"
+            >
+              Sign Up to Volunteer
+            </a>
+          </div>
+
+          <div className="help-card">
+            <h4>Donate</h4>
+            <p>
+              Your gifts provide materials, supplies, and support for families
+              rebuilding their homes and lives.
+            </p>
+            <a
+              href="/donate"
+              className="help-link"
+            >
+              Give Online
+            </a>
           </div>
         </div>
       </section>

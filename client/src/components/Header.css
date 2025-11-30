@@ -51,10 +51,15 @@
   gap: 0.75rem;
 }
 
+/* ✅ ALL BUTTONS BOLD */
 .action-btn {
   border-radius: 999px;
   padding: 0.55rem 0.8rem;
   font-size: 0.95rem;
+
+  font-weight: 700;
+  letter-spacing: 0.04em;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -84,9 +89,8 @@
   background: var(--mc-blue) !important;
   border-color: var(--mc-blue) !important;
   color: #ffffff !important;
-  font-weight: 700;
+
   padding: 0.55rem 1.35rem;
-  letter-spacing: 0.04em;
   font-size: 1rem;
   border-radius: 999px;
 }
@@ -101,8 +105,10 @@
     flex-direction: column;
     gap: 0.75rem;
   }
+
   .header-links {
     width: 100%;
     justify-content: center;
+    flex-wrap: wrap;
   }
 }
